@@ -1,4 +1,11 @@
-﻿<div class="card">
+﻿<p>
+    REPTILEHAUS NG2 CHAT DEMO
+  </p>
+  <div *ngFor="let message of messages">
+    {{message}}
+  </div>
+  
+<div class="card">
   <div class="card-header">
     {{pageTitle}}
   </div>
@@ -27,7 +34,7 @@
               <div class="col-md-5 meat-item" (click)="selectMeatTops(meat)" *ngFor='let meat of meatTypes'>
                 <div class="row">
                   <div class="col-md-6" style="padding-left:0px;">
-                    <img class="" width="120px;" height="100px;" [src]="meat.meatImg" >
+                    <img class="" width="120px;" height="100px;" [src]="meat.meatImg">
                   </div>
                   <div class="col-md-6 meat-desc" style="background: #fff;">
                     <p class="card-text">{{meat.meatDesc}}</p>
@@ -43,7 +50,7 @@
               <div class="col-md-5 meat-item" (click)="selectVeggieTops(veggie)" *ngFor='let veggie of veggieTypes'>
                 <div class="row">
                   <div class="col-md-6" style="padding-left:0px;">
-                    <img class="" width="120px;" height="100px;" [src]="veggie.veggieImg" >
+                    <img class="" width="120px;" height="100px;" [src]="veggie.veggieImg">
                   </div>
                   <div class="col-md-6 meat-desc" style="background: #fff;">
                     <p class="card-text">{{veggie.veggieDesc}}</p>
@@ -52,7 +59,8 @@
 
               </div>
               <div class="col-md-12 text-center">
-                <input type="button" value="Review" (click)="createReview();currentStep = 'step4'" class="btn btn-primary">
+                <input type="button" value="Review" (click)="createReview();currentStep = 'step4'"
+                  class="btn btn-primary">
               </div>
             </ng-container>
 
@@ -78,7 +86,7 @@
                 <div class="row">
 
                   <div class="col-md-4" *ngFor='let meat of meatTypes' [hidden]="!meat.selected">
-                    <div >
+                    <div>
                       <img class="card-img-top" width="100px;" height="100px;" [src]="meat.meatImg"
                         alt="Card image cap">
                     </div>
@@ -94,7 +102,7 @@
                 <div class="row">
 
                   <div class="col-md-4" *ngFor='let veggie of veggieTypes' [hidden]="!veggie.selected">
-                    <div >
+                    <div>
                       <img class="card-img-top" width="100px;" height="100px;" [src]="veggie.veggieImg"
                         alt="Card image cap">
                     </div>
@@ -111,19 +119,19 @@
             </ng-container>
 
             <ng-container *ngIf="currentStep == 'step5'">
-              <div>
+              <div class="text-center">
                 <h1> Your Order is Confirmed, Thanks for your Order! </h1>
               </div>
-              <div>
+              <div class="col text-center">
+                <input type="button" value="Order Another Pizza" (click)="currentStep = 'step1'" class="btn btn-primary">
               </div>
             </ng-container>
           </div>
         </div>
-
-
         <div id="pizza" class="col-md-6 pizza-view">
           <img [src]="pizzaImg" style="position: absolute;">
-          <img style="position: absolute;" src="./assets/images/topping/cheese_mozz_ML.png">
+          <img style="position: absolute; width:500px; height:500px; left:23px; top:10px;"
+            src="./assets/images/topping/cheese_mozz_ML.png">
           <img style="position: absolute;" [src]="meat.meatFullImg" *ngFor="let meat of meatTops">
           <img style="position: absolute;" [src]="veggie.veggieFullImg" *ngFor="let veggie of veggieTops">
         </div>

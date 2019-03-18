@@ -13,3 +13,7 @@ div.card {
 .table {
   margin-top: 10px
 }
+body{
+  background: url('./assets/images/bg.jpg') no-repeat;
+  background-size: 100%;
+}
